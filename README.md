@@ -27,6 +27,6 @@ O projeto foi prototipado no Figma e está sendo desenvolvido utilizando a lingu
 
 ## Contatos
 
-Bárbara Silva - barbara.silva2@estudante.ifb.edu.br
-Beatriz Sousa - beatriz.sousa2@estudante.ifb.edu.br 
-Tiago Segato (orientador) - tiago.segato@ifb.edu.br
+- Bárbara Silva - barbara.silva2@estudante.ifb.edu.br 
+- Beatriz Sousa - beatriz.sousa2@estudante.ifb.edu.br 
+- Tiago Segato (orientador) - tiago.segato@ifb.edu.br
