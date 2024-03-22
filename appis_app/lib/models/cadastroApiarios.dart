@@ -11,7 +11,6 @@ class ApiariosModelo {
   String dateFinish;
   String tipoAbelha;
   String qtdColmeias;
-  String anotacoes;
 
   ApiariosModelo({
     required this.id,
@@ -21,8 +20,7 @@ class ApiariosModelo {
     required this.dateStart,
     required this.dateFinish,
     required this.tipoAbelha,
-    required this.qtdColmeias,
-    required this.anotacoes,
+    required this.qtdColmeias
   });
 
   ApiariosModelo.fromMap(Map<String, dynamic> map)
@@ -33,7 +31,6 @@ class ApiariosModelo {
         dateFinish = map["dateFinish"],
         tipoAbelha = map["tipoAbelha"],
         qtdColmeias = map["qtdColmeias"],
-        anotacoes = map["anotacoes"],
         localizacao = map["localizacao"],
         imagem = map["imagem"];
 
@@ -46,7 +43,6 @@ class ApiariosModelo {
       "dateFinish" : dateFinish,
       "tipoAbelha" : tipoAbelha,
       "qtdColmeias": qtdColmeias,
-      "anotacoes" : anotacoes,
       "localizacao" : localizacao,
       "imagem" : imagem,
     };
