@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:appis_app/assets/colors.dart';
+import 'package:appis_app/assets/colors/colors.dart';
 import 'package:appis_app/models/anotacoes_modelo.dart';
 import 'package:appis_app/models/cadastroApiarios.dart';
 import 'package:flutter/material.dart';
@@ -93,7 +93,10 @@ class VisualizarProducoes extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: List.generate(listaAnotacoes.length, (index) {
                     anotacoesModelo anotacoesagora = listaAnotacoes[index];
-                    return Text(anotacoesagora.anotacoes);
+                    return ListTile(
+                      title: Text(anotacoesagora.anotacoes),
+                      subtitle: Text(anotacoesagora.data),
+                    );
                   }),
                 ),
               ],
