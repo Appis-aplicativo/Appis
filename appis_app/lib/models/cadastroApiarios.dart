@@ -11,7 +11,6 @@ class ApiariosModelo {
   String dateFinish;
   String tipoAbelha;
   String qtdColmeias;
-  String anotacoes;
 
   ApiariosModelo({
     required this.id,
@@ -21,19 +20,32 @@ class ApiariosModelo {
     required this.dateStart,
     required this.dateFinish,
     required this.tipoAbelha,
-    required this.qtdColmeias,
-    required this.anotacoes,
+    required this.qtdColmeias
   });
 
   ApiariosModelo.fromMap(Map<String, dynamic> map)
       : id = map["id"],
-        apelido = map["nome"],
+        apelido = map["apelido"],
         descricao = map["descricao"],
         dateStart = map["dateStart"],
         dateFinish = map["dateFinish"],
         tipoAbelha = map["tipoAbelha"],
         qtdColmeias = map["qtdColmeias"],
-        anotacoes = map["anotacoes"],
         localizacao = map["localizacao"],
         imagem = map["imagem"];
+
+  Map<String, dynamic> toMap(){
+    return{
+      "id": id,
+      "apelido" : apelido,
+      "descricao": descricao,
+      "dateStart": dateStart,
+      "dateFinish" : dateFinish,
+      "tipoAbelha" : tipoAbelha,
+      "qtdColmeias": qtdColmeias,
+      "localizacao" : localizacao,
+      "imagem" : imagem,
+    };
+
+  }
 }

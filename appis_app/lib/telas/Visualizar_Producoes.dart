@@ -1,15 +1,39 @@
+// ignore_for_file: file_names
+
+import 'package:appis_app/assets/colors/colors.dart';
+import 'package:appis_app/models/anotacoes_modelo.dart';
+import 'package:appis_app/models/cadastroApiarios.dart';
 import 'package:flutter/material.dart';
 
 class VisualizarProducoes extends StatelessWidget {
-  const VisualizarProducoes({super.key});
+  VisualizarProducoes({super.key});
+
+  final ApiariosModelo apiarioModelo = ApiariosModelo(
+      id: "AP001",
+      apelido: "Apiário Fazenda X",
+      descricao: "Apiário teste",
+      localizacao: "Rajadinha",
+      dateStart: "21/03/204",
+      dateFinish: "21/03/2025",
+      tipoAbelha: "Abelha Europa",
+      qtdColmeias: "5");
+
+  final List<anotacoesModelo> listaAnotacoes = [
+    anotacoesModelo(
+        id: "001", anotacoes: "abelha rainha fugiu", data: "09/03/2024"),
+    anotacoesModelo(
+        id: "002", anotacoes: "abelha rainha voltou", data: "09/04/2024")
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: paletaDeCores.fundoApp,
       appBar: AppBar(title: const Text("Minhas produções")),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 16.0), // Espaçamento opcional
+        padding: const EdgeInsets.only(bottom: 16.0),
         child: FloatingActionButton.extended(
+          backgroundColor: paletaDeCores.amareloClaro,
           onPressed: () {
             print("Foi clicado");
           },
@@ -17,11 +41,19 @@ class VisualizarProducoes extends StatelessWidget {
           icon: const Icon(Icons.edit),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: ListView(
+        padding: const EdgeInsets.all(16.0),
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          Container(
+            margin: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.0),
+              color: paletaDeCores.fundoApp,
+              border: Border.all(
+                color: Colors.black,
+                width: 1.0,
+              ),
+            ),
             child: Row(
               children: [
                 const Expanded(
@@ -29,19 +61,47 @@ class VisualizarProducoes extends StatelessWidget {
                     decoration: InputDecoration(
                       hintText: 'Pesquisar',
                       contentPadding: EdgeInsets.all(8.0),
-                      border: OutlineInputBorder(),
+                      border: InputBorder.none,
                     ),
                   ),
                 ),
                 IconButton(
                   icon: const Icon(Icons.search),
                   onPressed: () {
-                    // lógica da pesquisa
+                    // logica da pesquisaa
                   },
                 ),
               ],
             ),
           ),
+          Container(
+            padding: const EdgeInsets.all(
+                8.0), // Adicionando um espaçamento interno de 8.0
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "nome apiário",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                Text(apiarioModelo.apelido),
+                const Text(
+                  "anotações",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: List.generate(listaAnotacoes.length, (index) {
+                    anotacoesModelo anotacoesagora = listaAnotacoes[index];
+                    return ListTile(
+                      title: Text(anotacoesagora.anotacoes),
+                      subtitle: Text(anotacoesagora.data),
+                    );  
+                  }),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
