@@ -96,7 +96,11 @@ class VisualizarProducoes extends StatelessWidget {
                     return ListTile(
                       title: Text(anotacoesagora.anotacoes),
                       subtitle: Text(anotacoesagora.data),
+<<<<<<< HEAD
                     );  
+=======
+                    );
+>>>>>>> efc64ef93582fcae90237e75fed803396ca4f034
                   }),
                 ),
               ],
