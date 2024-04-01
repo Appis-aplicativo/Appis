@@ -2,7 +2,7 @@
 import 'package:appis_app/telas/Tela_Login.dart';
 =======
 import 'package:appis_app/telas/Visualizar_Producoes.dart';
->>>>>>> efc64ef93582fcae90237e75fed803396ca4f034
+>>>>>>> efc64ef93582fcae90237e75fed803396ca4f034;
 import 'package:flutter/material.dart';
 
 void main() {
