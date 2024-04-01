@@ -1,12 +1,10 @@
-// ignore_for_file: file_names
-
+import 'package:flutter/material.dart';
 import 'package:appis_app/assets/colors/colors.dart';
 import 'package:appis_app/models/anotacoes_modelo.dart';
 import 'package:appis_app/models/cadastroApiarios.dart';
-import 'package:flutter/material.dart';
 
 class VisualizarProducoes extends StatelessWidget {
-  VisualizarProducoes({super.key});
+  VisualizarProducoes({Key? key});
 
   final ApiariosModelo apiarioModelo = ApiariosModelo(
       id: "AP001",
@@ -68,7 +66,7 @@ class VisualizarProducoes extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.search),
                   onPressed: () {
-                    // logica da pesquisaa
+                    // lógica da pesquisa
                   },
                 ),
               ],
@@ -96,17 +94,38 @@ class VisualizarProducoes extends StatelessWidget {
                     return ListTile(
                       title: Text(anotacoesagora.anotacoes),
                       subtitle: Text(anotacoesagora.data),
-<<<<<<< HEAD
                     );  
-=======
-                    );
->>>>>>> efc64ef93582fcae90237e75fed803396ca4f034
                   }),
                 ),
               ],
             ),
           )
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Perfil',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.map),
+            label: 'Mapa',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bug_report_outlined), // Ícone de produções
+            label: 'Produções',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info),
+            label: 'Sobre',
+          ),
+        ],
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black,
+        onTap: (int index) {
+          // Adicione sua lógica de navegação aqui
+        },
       ),
     );
   }

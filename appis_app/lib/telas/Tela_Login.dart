@@ -21,7 +21,8 @@ class _LoginPageState extends State<LoginPage> {
             height: 200,
             width: 240,
             margin: const EdgeInsets.only(top: 72),
-            child: Image.asset('lib/assets/images/logo.png'),
+            child: Image.asset("lib\assets\images\logo.png"),
+            // a imagem não ta apareceendo, não sei o porque
           ),
           const Text(
             'Entre com seu login e senha ou faça seu registro',

@@ -1,24 +1,16 @@
-import 'package:appis_app/assets/colors.dart';
+// ignore_for_file: file_names
+
+import 'package:appis_app/assets/colors/colors.dart';
 import 'package:flutter/material.dart';
 
-
-class CadastrarProducoes extends StatefulWidget {
-  const CadastrarProducoes({Key? key});
+class EditPerfil extends StatefulWidget {
+  const EditPerfil({Key? key});
 
   @override
-  State<CadastrarProducoes> createState() => _CadastrarProducoesState();
+  State<EditPerfil> createState() => _EditPerfilState();
 }
 
-class _CadastrarProducoesState extends State<CadastrarProducoes> {
-  int _selectedIndex = 0; // Índice selecionado inicialmente
-
-  void _onItemTapped(int index) {
-    // Adicione sua lógica para lidar com a navegação aqui
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+class _EditPerfilState extends State<EditPerfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +42,7 @@ class _CadastrarProducoesState extends State<CadastrarProducoes> {
               padding: const EdgeInsets.only(top: 30),
               alignment: Alignment.center,
               child: const Text(
-                'Entre com as informações sobre sua produção.',
+                'Informe os novos dados que deseja editar.',
                 style: TextStyle(
                   color: paletaDeCores.preto,
                 ),
@@ -63,7 +55,7 @@ class _CadastrarProducoesState extends State<CadastrarProducoes> {
                   children: [
                     TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'Apelido:',
+                        labelText: 'Nome o Produtor:',
                         filled: true,
                         fillColor: paletaDeCores.fundoApp,
                         focusedBorder: OutlineInputBorder(
@@ -88,7 +80,7 @@ class _CadastrarProducoesState extends State<CadastrarProducoes> {
                     ),
                     TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'Descrição:',
+                        labelText: '123.456.789.00:',
                         filled: true,
                         fillColor: paletaDeCores.fundoApp,
                         focusedBorder: OutlineInputBorder(
@@ -113,7 +105,7 @@ class _CadastrarProducoesState extends State<CadastrarProducoes> {
                     ),
                     TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'Localização:',
+                        labelText: 'produtor@gmail.com:',
                         filled: true,
                         fillColor: paletaDeCores.fundoApp,
                         focusedBorder: OutlineInputBorder(
@@ -138,7 +130,7 @@ class _CadastrarProducoesState extends State<CadastrarProducoes> {
                     ),
                     TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'Data:',
+                        labelText: 'Senha:',
                         filled: true,
                         fillColor: paletaDeCores.fundoApp,
                         focusedBorder: OutlineInputBorder(
@@ -163,32 +155,7 @@ class _CadastrarProducoesState extends State<CadastrarProducoes> {
                     ),
                     TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'Tipo Abelha:',
-                        filled: true,
-                        fillColor: paletaDeCores.fundoApp,
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: paletaDeCores.preto,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: paletaDeCores.fundoApp,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                    ),
-                    const Divider(
-                      color: paletaDeCores.cinza,
-                      thickness: 2.0,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Anotações:',
+                        labelText: 'Confirmar Senha:',
                         filled: true,
                         fillColor: paletaDeCores.fundoApp,
                         focusedBorder: OutlineInputBorder(
@@ -233,36 +200,37 @@ class _CadastrarProducoesState extends State<CadastrarProducoes> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 50),
+                    SizedBox(
+                      width: double.maxFinite,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // Adicione sua lógica para cancelar aqui
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: paletaDeCores.fundoApp,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            side: const BorderSide(
+                              color: paletaDeCores.preto,
+                            ),
+                          ),
+                        ),
+                        child: const Text(
+                          'Cancelar',
+                          style: TextStyle(
+                            color: paletaDeCores.preto,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Perfil',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Mapa',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bug_report_outlined), // Ícone de produções
-            label: 'Produções',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.info),
-            label: 'Sobre',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
-        onTap: _onItemTapped,
       ),
     );
   }
