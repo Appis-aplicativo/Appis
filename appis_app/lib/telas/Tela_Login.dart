@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:appis_app/assets/colors/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -20,8 +22,8 @@ class _LoginPageState extends State<LoginPage> {
             alignment: Alignment.center,
             height: 200,
             width: 240,
-            margin: const EdgeInsets.only(top: 72),
-            child: Image.asset("lib\assets\images\logo.png"),
+            margin: const EdgeInsets.only(top: 50),
+            child: Image.asset('lib/assets/images/logo.png'),
             // a imagem não ta apareceendo, não sei o porque
           ),
           const Text(

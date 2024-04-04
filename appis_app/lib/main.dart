@@ -1,4 +1,5 @@
 import 'package:appis_app/telas/Cadastrar_Producoes.dart';
+import 'package:appis_app/telas/Tela_Login.dart';
 import 'package:appis_app/telas/Visualizar_Producoes.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:   VisualizarProducoes(),
+      home:   LoginPage(),
     );
   }  
 }
