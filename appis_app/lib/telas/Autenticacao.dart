@@ -10,7 +10,12 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool queroEntrar = true;
-  
+  final _formKey = GlobalKey<FormState>(); // Chave global para o formulário
+  TextEditingController senhaController = TextEditingController();
+  TextEditingController confirmarSenhaController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController cpfController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(color: Colors.black, fontSize: 16),
           ),
           Form(
+            key: _formKey, // Atribuir a chave global ao formulário
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
               child: Column(
@@ -61,6 +67,42 @@ class _LoginPageState extends State<LoginPage> {
                   ] else ...[
                     // Formulário de registro
                     TextFormField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        labelText: 'Email:',
+                        filled: true,
+                        fillColor: paletaDeCores.fundoApp,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty || !value.contains('@')) {
+                          return 'Por favor, insira um email válido';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 24),
+                    TextFormField(
+                      controller: cpfController,
+                      decoration: InputDecoration(
+                        labelText: 'CPF:',
+                        filled: true,
+                        fillColor: paletaDeCores.fundoApp,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty || value.length != 11) {
+                          return 'Por favor, insira um CPF válido';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 24),
+                    TextFormField(
                       decoration: InputDecoration(
                         labelText: 'Nome:',
                         filled: true,
@@ -72,28 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 24),
                     TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'CPF:',
-                        filled: true,
-                        fillColor: paletaDeCores.fundoApp,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Email:',
-                        filled: true,
-                        fillColor: paletaDeCores.fundoApp,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    TextFormField(
+                      controller: senhaController,
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Senha:',
@@ -106,6 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 24),
                     TextFormField(
+                      controller: confirmarSenhaController,
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Confirmar Senha:',
@@ -115,6 +137,12 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
+                      validator: (value) {
+                        if (value != senhaController.text) {
+                          return 'As senhas não coincidem';
+                        }
+                        return null;
+                      },
                     ),
                   ],
                   const SizedBox(height: 64),
@@ -122,7 +150,10 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.maxFinite,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Adicione sua lógica de login ou registro aqui
+                        if (_formKey.currentState!.validate()) {
+                          // Se o formulário for válido
+                          // Adicione sua lógica de login ou registro aqui
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: paletaDeCores.amareloClaro,
@@ -146,7 +177,9 @@ class _LoginPageState extends State<LoginPage> {
                         queroEntrar = !queroEntrar;
                       });
                     },
-                    child: Text(queroEntrar ? "Se não tiver uma conta, entre" : "Se tiver uma conta, faça login"),
+                    child: Text(
+                      queroEntrar ? "Se não tiver uma conta, entre" : "Se tiver uma conta, faça login",
+                    ),
                   )
                 ],
               ),

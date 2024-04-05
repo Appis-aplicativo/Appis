@@ -1,6 +1,6 @@
 
 import 'package:appis_app/telas/Autenticacao.dart';
-import 'package:appis_app/telas/TelaSplash.dart';
+
 
 import 'package:flutter/material.dart';
 
