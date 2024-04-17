@@ -1,3 +1,4 @@
+import 'package:appis_app/assets/components/Barra_navegacao.dart';
 import 'package:flutter/material.dart';
 import 'package:appis_app/assets/colors/colors.dart';
 import 'package:appis_app/models/anotacoes_modelo.dart';
@@ -102,30 +103,10 @@ class VisualizarProducoes extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: paletaDeCores.amareloEscuro,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Perfil',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Mapa',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bug_report_outlined), // Ícone de produções
-            label: 'Produções',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.info),
-            label: 'Sobre',
-          ),
-        ],
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
-        onTap: (int index) {
-          // Adicione sua lógica de navegação aqui
+      bottomNavigationBar: BarraNavegacao(
+        currentIndex: 0, // Índice da página atual
+        onTap: (index) {
+          print('Item $index tocado');
         },
       ),
     );
