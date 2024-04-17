@@ -1,8 +1,5 @@
-
-
 import 'package:appis_app/telas/Autenticacao.dart';
-
-
+import 'package:appis_app/telas/Cadastrar_Producoes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: const  LoginPage(),
+      home: const CadastrarProducoes(),
     );
   }  
 }
