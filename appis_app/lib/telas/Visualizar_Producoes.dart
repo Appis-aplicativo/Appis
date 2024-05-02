@@ -1,4 +1,6 @@
-import 'package:appis_app/assets/components/Barra_navegacao.dart';
+import 'package:appis_app/telas/Index_maps.dart';
+import 'package:appis_app/telas/Tela_sobre.dart';
+import 'package:appis_app/telas/Visualizar_perfil.dart';
 import 'package:flutter/material.dart';
 import 'package:appis_app/assets/colors/colors.dart';
 import 'package:appis_app/models/anotacoes_modelo.dart';
@@ -103,10 +105,54 @@ class VisualizarProducoes extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: BarraNavegacao(
-        currentIndex: 0, // Índice da página atual
-        onTap: (index) {
-          print('Item $index tocado');
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: paletaDeCores.amareloEscuro,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Perfil',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.map),
+            label: 'Mapa',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bug_report_outlined), // Ícone de produções
+            label: 'Produções',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info),
+            label: 'Sobre',
+          ),
+        ],
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black,
+        currentIndex: 2, // Índice 2 selecionado (Produções)
+        onTap: (int index) {
+          // Adicione sua lógica de navegação aqui
+          switch (index) {
+            case 0:
+              Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ViewPerfil()),
+        );
+              break;
+            case 1:
+             Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MapaGooglePage()),
+        );
+              break;
+            case 2:
+              // Já está na página de produções, não é necessário navegar novamente
+              break;
+            case 3:
+             Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SobrePage()),
+        );
+              break;
+          }
         },
       ),
     );

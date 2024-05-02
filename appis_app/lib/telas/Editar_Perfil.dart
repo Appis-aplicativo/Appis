@@ -1,7 +1,7 @@
-// ignore_for_file: file_names
-
 import 'package:appis_app/assets/colors/colors.dart';
+import 'package:appis_app/telas/Visualizar_perfil.dart';
 import 'package:flutter/material.dart';
+
 
 class EditPerfil extends StatefulWidget {
   const EditPerfil({Key? key});
@@ -28,7 +28,8 @@ class _EditPerfilState extends State<EditPerfil> {
               children: [
                 IconButton(
                   onPressed: () {
-                    // Adicione sua lógica para voltar à página anterior aqui
+                    // Navegue de volta à página anterior
+                    Navigator.of(context).pop();
                   },
                   icon: const Icon(
                     Icons.arrow_back,
@@ -205,7 +206,12 @@ class _EditPerfilState extends State<EditPerfil> {
                       width: double.maxFinite,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Adicione sua lógica para cancelar aqui
+                          // Navegue para a página ViewPerfil
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => ViewPerfil(),
+                            ),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: paletaDeCores.fundoApp,
